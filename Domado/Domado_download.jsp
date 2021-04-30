@@ -1,11 +1,11 @@
 <%@ page contentType="application;" %>
 <%@ page import="java.util.*,java.io.*,java.sql.*,java.text.*"%>
 <%
-	// í¸ì¶ : http://localhost:8080/íë¡ì í¸ëª/download.jsp?file=íì¼ëª
+	// 호출: http://localhost:8080/프로젝트명/download.jsp?file=파일명
 
 	String strFilename=java.net.URLDecoder.decode(request.getParameter("file"));
 	String strFilenameOutput=new String(strFilename.getBytes("euc-kr"),"8859_1");
-	File file=new File("c:/Out/"+strFilename); // ì¶ë ¥ ê²°ê³¼ë¥¼ C:/Out í´ëì ê³ ì í¨.
+	File file=new File("c:/Out/"+strFilename); // 출력결과를 C:/Out 폴더에 고정함.
 	byte b[]=new byte[(int)file.length()];
 	response.setHeader("Content-Disposition","attachment;filename="+strFilenameOutput);
 	response.setHeader("Content-Length",String.valueOf(file.length()));
